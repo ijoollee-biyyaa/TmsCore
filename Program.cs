@@ -154,3 +154,8 @@ Console.WriteLine($"SMS SENT: Welcome to the Tms, {s.Name}!");
 
 var auditStudent = new Student {Id = "S1", Name ="Abeba", Age =20, GPA = 3.8m};
 auditService.FinilizeEnrollment(auditStudent);
+
+
+
+
+

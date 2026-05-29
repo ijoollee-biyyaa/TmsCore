@@ -11,8 +11,14 @@ public class Course
     public int Capacity
     {
         get;
-        set => field = value > 0 ? value :throw new ArgumentOutOfRangeException(nameof(value), "System Constraint: Capacity must be greater than zero.");}
+        set => field = value > 0 ? value :throw new ArgumentOutOfRangeException(nameof(value), "System Constraint: Capacity must be greater than zero.");
+    }
         public int EnrolledCount{get;set;}
+
+// we used for activity 4 - ToString() override
+public override string ToString()
+    => $"Course: {Title} ({Code}), Capacity: {Capacity}, Enrolled: {EnrolledCount}";
+
     }
 
 // student model
@@ -35,6 +41,11 @@ public class Student
         set=> field = value is >= 0.0m and <= 4.0m ? value:
         throw new ArgumentOutOfRangeException(nameof(value), "GPA must be between 0.0 and 4.0.");
     }
+
+    public DateTime EnrolledAt {get; set;} = DateTime.UtcNow;
+// we used for activity 4 - ToString() override
+  public override string ToString()
+    => $"Student: {Name} ({Id}), Age: {Age}, GPA: {GPA}, Enrolled At: {EnrolledAt}";
 }
 
 // define IGradable interface
@@ -104,3 +115,4 @@ public class CapacityReachedException : InvalidOperationException
         CourseCode = courseCode;
     }
 }
+
